@@ -1,6 +1,6 @@
 # TicTacToe
 
-dependency : implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+dependency : implementation 'com.github.ybq:Android-SpinKit:1.4.0' [for animative progress bar]
 
 ![Screenshot_2021-05-27-14-04-33-276_com example tictactoe](https://user-images.githubusercontent.com/75353031/119797561-f74ab500-bef7-11eb-9069-8b0a6282c1b4.jpg)
 
