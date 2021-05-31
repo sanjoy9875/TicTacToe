@@ -12,8 +12,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() ,View.OnClickListener{
 
-    val PLAYER_O:Int = 0
-    val PLAYER_X:Int = 1
+    private val PLAYER_O:Int = 0
+    private val PLAYER_X:Int = 1
 
     var activePlayer = PLAYER_O
 
@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() ,View.OnClickListener{
 
     override fun onClick(v: View?) {
 
+    //If game is not active then it will return from this if condition->
         if (!isGameActive){
             return
         }
@@ -52,6 +53,8 @@ class MainActivity : AppCompatActivity() ,View.OnClickListener{
         var clickButton:Button = findViewById(v!!.id)
         var clickedTag = Integer.parseInt(v?.tag.toString())
 
+
+    //If any button is already clicked and if you clicked that button again it will return from this if condition->
         if (filledPosition[clickedTag] != -1){
             return
         }
@@ -80,6 +83,7 @@ class MainActivity : AppCompatActivity() ,View.OnClickListener{
 
     private fun checkForWin() {
 
+ //Possible win condition declare in this array->
         var winingPositions = arrayOf( intArrayOf(0, 1, 2),
                                         intArrayOf(3, 4, 5),
                                          intArrayOf(6, 7, 8),
@@ -107,10 +111,12 @@ class MainActivity : AppCompatActivity() ,View.OnClickListener{
                     if (filledPosition[val0]==PLAYER_O){
                         isTrue = false
                         showDialog("O is Winner")
+                        break
                     }
                     else{
                         isTrue = false
                         showDialog("X is Winner")
+                        break
                     }
 
                 }
@@ -123,19 +129,19 @@ class MainActivity : AppCompatActivity() ,View.OnClickListener{
         }
     }
 
-        private fun showDialog (text:String) {
+//Show a Dialog for Winner->
+    fun showDialog (text:String) {
 
-            AlertDialog.Builder(this)
-                .setTitle(text)
-                .setPositiveButton("Restart", DialogInterface.OnClickListener { dialog, which ->
-                    restartGame()
-                })
-                .setCancelable(false)
-                .show()
+        AlertDialog.Builder(this)
+            .setTitle(text)
+            .setPositiveButton("Restart", DialogInterface.OnClickListener { dialog, which ->
+                restartGame()
+            })
+            .setCancelable(false)
+            .show()
+    }
 
-
-}
-
+//After restart all values will re initialize again->
     private fun restartGame() {
 
         tvHeader.text = "O's Turn"
@@ -171,6 +177,4 @@ class MainActivity : AppCompatActivity() ,View.OnClickListener{
         count = 0
 
     }
-
-
 }

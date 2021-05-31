@@ -8,10 +8,10 @@
 
     <TextView
         android:id="@+id/tvHeader"
-        android:padding="@dimen/dp_8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:padding="@dimen/dp_8"
         android:text="@string/my_TikTakToe"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_25"
@@ -20,8 +20,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:layout_below="@id/tvHeader"
+        android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
